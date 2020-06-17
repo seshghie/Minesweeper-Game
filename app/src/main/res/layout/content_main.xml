@@ -27,24 +27,20 @@
         android:fontFamily="cursive"
         android:text="@string/tv_ws_Title1"
         android:textColor="#FF00A9"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true"
-         />
+        android:textSize="70sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tv_ws_Title2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
         android:fontFamily="cursive"
         android:text="@string/tv_ws_Title2"
         android:textColor="#FF00A9"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:layout_centerVertical="true"
-        android:layout_alignParentEnd="true"
-        />
+        android:textSize="70sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tv_ws_Skip"

@@ -13,4 +13,5 @@
     <string name="tv_ws_Title2">Milkyway</string>
     <string name="tv_ws_Skip">INSERT COIN(S) OR CLICK ANYWHERE TO SKIP</string>
     <string name="tv_ws_Author">by Shaheen Eshghi™℠</string>
+    <string name="title_activity_help_screen">HelpScreen</string>
 </resources>
