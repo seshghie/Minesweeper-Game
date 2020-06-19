@@ -9,29 +9,22 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.view.View;
 
 import cmpt276.assignment3.R;
 
-public class HelpScreen extends AppCompatActivity
-{
-    ConstraintLayout hs_Layout;
+public class MainMenu extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_help_screen);
-        hs_Layout = findViewById(R.id.hs_Layout);
-        hs_Layout.setBackgroundResource(R.drawable.bg_help);
+        setContentView(R.layout.activity_main_menu);
     }
 
-    public static Intent hs_Intent (Context context)
+    public static Intent mm_Intent (Context context)
     {
-        Intent intent = new Intent(context, HelpScreen.class);
+        Intent intent = new Intent(context, MainMenu.class);
         return intent;
     }
-
 }

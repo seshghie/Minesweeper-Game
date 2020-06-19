@@ -1,5 +1,6 @@
 package cmpt276.assignment3.UI;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -43,8 +44,10 @@ public class MainActivity extends AppCompatActivity
             public void run()
             {
                 //intent to run main menu
+                //Intent launch_MMenu = MainMenu.mm_Intent(MainActivity.this);
+                //startActivity(launch_MMenu);
             }
-        }, 5000);
+        }, 11000);
 
 
         ws_Layout.setOnClickListener(new View.OnClickListener()
@@ -53,6 +56,8 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 //intent to run main menu
+                Intent launch_MMenu = MainMenu.mm_Intent(MainActivity.this);
+                startActivity(launch_MMenu);
             }
 
         });

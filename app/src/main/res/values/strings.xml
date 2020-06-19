@@ -14,4 +14,14 @@
     <string name="tv_ws_Skip">INSERT COIN(S) OR CLICK ANYWHERE TO SKIP</string>
     <string name="tv_ws_Author">by Shaheen Eshghi™℠</string>
     <string name="title_activity_help_screen">HelpScreen</string>
+    <string name="title_activity_main_menu">MainMenu</string>
+    <string name="title_activity_game_screen">GameScreen</string>
+    <string name="title_activity_options_screen">OptionsScreen</string>
+    <string name="tv_hs_Author">About Author</string>
+    <string name="tv_hs_Author_a">My name is Shaheen Eshghi.\nI hate computer science but, I am pretty good at it.\nI am enrolled in CMPT 276 under Dr. Brian Fraser.</string>
+    <string name="tv_hs_Courselink">https://opencoursehub.cs.sfu.ca/bfraser/grav-cms/cmpt276/home</string>
+    <string name="ts_hs_Howto">How You Play?</string>
+    <string name="tv_hs_Howto_a">There are mobsters hiding under random cells in a field. You must find them all. This is accomplished by tapping on cells to inspect their content. The cells will either reveal a mobster or a number denoting the tally of mobsters in that cell\'s row and column. Use this information to make coordinated decisions as to which cell to inspect next. The fewer cells inspected to find the mobsters, the better.</string>
+    <string name="tv_hs_Source">Source:</string>
+    <string name="tv_hs_Source_a">https://www.artstation.com/artwork/J3Wq0</string>
 </resources>
