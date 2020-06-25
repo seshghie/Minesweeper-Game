@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.View;
 import android.view.animation.Animation;
@@ -11,7 +12,6 @@ import android.view.animation.AnimationUtils;
 
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import cmpt276.assignment3.R;
 
 
@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity
     TextView tv_Skip;
     TextView tv_Title1;
     TextView tv_Title2;
+    Handler freezeTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -36,31 +37,29 @@ public class MainActivity extends AppCompatActivity
         tv_Title2 = findViewById(R.id.tv_ws_Title2);
 
 
-        startAnimations();
-        Handler freezeTime = new Handler();
-        freezeTime.postDelayed(new Runnable()
-        {
-            @Override
-            public void run()
-            {
-                //intent to run main menu
-                //Intent launch_MMenu = MainMenu.mm_Intent(MainActivity.this);
-                //startActivity(launch_MMenu);
-            }
-        }, 11000);
-
 
         ws_Layout.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                //intent to run main menu
-                Intent launch_MMenu = MainMenu.mm_Intent(MainActivity.this);
-                startActivity(launch_MMenu);
+                launch_MMenu();
             }
 
         });
+
+            startAnimations();
+            freezeTime = new Handler();
+            freezeTime.postDelayed(new Runnable()
+            {
+                @Override
+                public void run()
+                {
+                    launch_MMenu();
+                }
+            }, 11000);
+
+
 
     }
 
@@ -76,6 +75,14 @@ public class MainActivity extends AppCompatActivity
         tv_Title1.startAnimation(anim_Title1);
         tv_Title2.startAnimation(anim_Title2);
 
+    }
+
+    private void launch_MMenu()
+    {
+        Intent launch_MMenu = MainMenu.mm_Intent(MainActivity.this);
+        startActivity(launch_MMenu);
+        finish();
+        freezeTime.removeCallbacksAndMessages(null);
     }
 
 

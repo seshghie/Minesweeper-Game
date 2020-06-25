@@ -13,14 +13,14 @@
         android:fontFamily="cursive"
         android:text="@string/tv_hs_Source"
         android:textColor="#FF00A9"
-        android:textSize="30sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.97" />
 
     <TextView
         android:id="@+id/tv_hs_Howto_a"
@@ -83,24 +83,62 @@
         app:layout_constraintHorizontal_bias="0.955"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.891" />
+        app:layout_constraintVertical_bias="0.891"
+        android:focusable="true" />
 
     <TextView
-        android:id="@+id/tv_hs_Source_a"
-        android:layout_width="310dp"
-        android:layout_height="22dp"
+        android:id="@+id/tv_hs_Source_a1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:autoLink="web"
         android:clickable="true"
-        android:text="@string/tv_hs_Source_a"
+        android:text="@string/tv_hs_Source_a1"
         android:textColor="#FFFFFF"
-        android:textSize="16sp"
+        android:textSize="12sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintStart_toEndOf="@+id/tv_hs_Source"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9915" />
+        app:layout_constraintVertical_bias="1.0"
+        android:focusable="true" />
+
+    <TextView
+        android:id="@+id/tv_hs_Source_a2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/tv_hs_Source_a2"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/tv_hs_Source_a3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/tv_hs_Source_a3"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/tv_hs_Howto"
@@ -114,6 +152,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.83"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.050000012" />
+
+    <TextView
+        android:id="@+id/tv_hs_Header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:text="@string/tv_hs_Header"
+        android:textColor="#FF00A9"
+        android:textSize="70sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.050000012" />
