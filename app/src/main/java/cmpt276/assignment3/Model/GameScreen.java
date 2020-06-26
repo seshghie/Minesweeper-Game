@@ -322,6 +322,7 @@ public class GameScreen extends AppCompatActivity
             VictoryFragment dialog = new VictoryFragment();
             dialog.show(manager, "Victory Message");
         }
+
     }
 
 }
