@@ -21,6 +21,12 @@ public class MainMenu extends AppCompatActivity
     Button btn_Help;
 
     @Override
+    public void onBackPressed()
+    {
+        System.exit(0);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);

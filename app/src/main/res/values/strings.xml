@@ -39,6 +39,7 @@
     <string name="tv_hs_Source_a3">www.soundfishing.eu/sound/laser-gun</string>
     <string name="btn_os_Clear">Reset Times Played</string>
     <string name="btn_os_Save">Save</string>
+    <string name="tv_vm_Header">Congratulations! You are victorious!</string>
 
     <string-array name="arr_BSize">
         <item>Four x Six</item>

@@ -6,11 +6,14 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.FragmentManager;
 
 import android.preference.PreferenceManager;
 import android.view.View;
@@ -18,10 +21,12 @@ import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
 import cmpt276.assignment3.R;
+import cmpt276.assignment3.UI.VictoryFragment;
 
 
 public class GameScreen extends AppCompatActivity
@@ -35,11 +40,14 @@ public class GameScreen extends AppCompatActivity
     int uMines;
     int uScans;
     int total_Plays;
+    int btn_Val;
+    int btn_CurrVal;
 
     SharedPreferences mPreferences;
     SharedPreferences.Editor mEditor;
 
     Button game_Buttons[][];
+    int [][] mine_Grid;
     int set_Rows;
     int set_Cols;
     int set_Mines;
@@ -60,9 +68,6 @@ public class GameScreen extends AppCompatActivity
 
         uMines = 0;
         uScans = 0;
-
-        tv_Mines.setText(String.valueOf(uMines));
-        tv_Scans.setText(String.valueOf(uScans));
 
         mPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         mEditor =  mPreferences.edit();
@@ -125,6 +130,12 @@ public class GameScreen extends AppCompatActivity
         {
             set_Mines = 20;
         }
+
+        // Initial #mines + #scans
+        update_Stats();
+
+        // Create mine grid
+        place_Mines();
 
         TableLayout game_Table = findViewById(R.id.tl_GameSpace);
         game_Buttons = new Button[set_Rows][set_Cols];
@@ -192,8 +203,62 @@ public class GameScreen extends AppCompatActivity
         Resources resource = getResources();
 
 
+        if (mine_Grid[row][col] == -1)
+        {
+            mine_Grid[row][col] = 0;
+            clicked_Button.setBackground(new BitmapDrawable(resource, scaledBitmap));
+            clicked_Button.setTextColor(Color.YELLOW);
+            clicked_Button.setTypeface(null, Typeface.BOLD);
+            uMines++;
+            update_Stats();
 
-        clicked_Button.setBackground(new BitmapDrawable(resource, scaledBitmap));
+            for (int i = 0; i < set_Cols; i++)
+            {
+                if (mine_Grid[row][i] == 1)
+                {
+                    btn_CurrVal = Integer.parseInt(game_Buttons[row][i].getText().toString());
+                    btn_CurrVal--;
+                    game_Buttons[row][i].setText(String.valueOf(btn_CurrVal));
+                }
+            }
+            for (int i = 0; i < set_Rows; i++)
+            {
+                if (mine_Grid[i][col] == 1)
+                {
+                    btn_CurrVal = Integer.parseInt(game_Buttons[i][col].getText().toString());
+                    btn_CurrVal--;
+                    game_Buttons[i][col].setText(String.valueOf(btn_CurrVal));
+                }
+            }
+        }
+
+        else if (mine_Grid[row][col] == 0)
+        {
+            mine_Grid[row][col] = 1;
+            uScans++;
+            update_Stats();
+            btn_Val = 0;
+
+            for (int i = 0; i < set_Cols; i++)
+            {
+                if (mine_Grid[row][i] == -1)
+                {
+                    btn_Val++;
+                }
+            }
+            for (int i = 0; i < set_Rows; i++)
+            {
+                if (mine_Grid[i][col] == -1)
+                {
+                    btn_Val++;
+                }
+            }
+
+            clicked_Button.setText(String.valueOf(btn_Val));
+
+        }
+
+
 
     }
 
@@ -218,32 +283,45 @@ public class GameScreen extends AppCompatActivity
         }
     }
 
-    private int[][] place_Mines()
+    private void place_Mines()
     {
         Random r_Mines = new Random();
+        int mines_Left = set_Mines;
 
-        int [][] mine_Grid = new int[set_Rows][set_Cols];
+        mine_Grid = new int[set_Rows][set_Cols];
         for (int i = 0; i < set_Rows; i++)
         {
-            mine_Grid[i] = new int[set_Cols];
-        }
-
-        while (set_Mines > 0)
-        {
-            int row = r_Mines.nextInt(set_Rows);
-            int col = r_Mines.nextInt(set_Cols);
-
-            // -1 is the bomb
-            if (mine_Grid[row][col] != -1)
+            for (int j = 0; j < set_Cols; j++)
             {
-                mine_Grid[row][col] = -1;
-                set_Mines--;
+                mine_Grid[i][j] = 0;
             }
         }
 
-        return mine_Grid;
+        while (mines_Left > 0)
+        {
+            int plant_Row = r_Mines.nextInt(set_Rows);
+            int plant_Col = r_Mines.nextInt(set_Cols);
+
+            // Use -1 to denote a mine
+            if (mine_Grid[plant_Row][plant_Col] != -1)
+            {
+                mine_Grid[plant_Row][plant_Col] = -1;
+                mines_Left--;
+            }
+        }
+
     }
 
-
+    private void update_Stats()
+    {
+        tv_Mines.setText(String.valueOf(uMines) + "/" + String.valueOf(set_Mines));
+        tv_Scans.setText(String.valueOf(uScans));
+        if (uMines == set_Mines)
+        {
+            FragmentManager manager = getSupportFragmentManager();
+            VictoryFragment dialog = new VictoryFragment();
+            dialog.show(manager, "Victory Message");
+        }
+    }
 
 }
