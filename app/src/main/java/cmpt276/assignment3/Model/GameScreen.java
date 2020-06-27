@@ -15,13 +15,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.FragmentManager;
 
+import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import java.util.Random;
 
@@ -53,6 +54,7 @@ public class GameScreen extends AppCompatActivity
     int set_Mines;
 
     MediaPlayer discover_MP;
+    Vibrator v_Mine;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -76,6 +78,8 @@ public class GameScreen extends AppCompatActivity
         tv_Total.setText(String.valueOf(total_Plays));
         mEditor.putInt("Total", total_Plays);
         mEditor.commit();
+
+        v_Mine = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
         createGameSpace();
 
@@ -205,6 +209,9 @@ public class GameScreen extends AppCompatActivity
 
         if (mine_Grid[row][col] == -1)
         {
+            // Vibrate for 400 milliseconds
+            v_Mine.vibrate(500);
+
             mine_Grid[row][col] = 0;
             clicked_Button.setBackground(new BitmapDrawable(resource, scaledBitmap));
             clicked_Button.setTextColor(Color.YELLOW);
@@ -318,11 +325,16 @@ public class GameScreen extends AppCompatActivity
         tv_Scans.setText(String.valueOf(uScans));
         if (uMines == set_Mines)
         {
+            // Vibrate for 1 sec
+            v_Mine.vibrate(1000);
+
             FragmentManager manager = getSupportFragmentManager();
             VictoryFragment dialog = new VictoryFragment();
             dialog.show(manager, "Victory Message");
         }
 
     }
+
+
 
 }
