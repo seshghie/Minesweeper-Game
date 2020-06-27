@@ -310,6 +310,7 @@ public class GameScreen extends AppCompatActivity
 
         while (mines_Left > 0)
         {
+            // Random row and column selected in range [0 - #rows/columns) respectively
             int plant_Row = r_Mines.nextInt(set_Rows);
             int plant_Col = r_Mines.nextInt(set_Cols);
 
