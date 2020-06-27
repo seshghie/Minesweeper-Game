@@ -1,3 +1,7 @@
+/*
+Display pop up dialog box for game end and handle redirection to main menu
+ */
+
 package cmpt276.assignment3.UI;
 
 import android.app.AlertDialog;
@@ -12,7 +16,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
-import cmpt276.assignment3.Model.GameScreen;
 import cmpt276.assignment3.R;
 
 public class VictoryFragment extends AppCompatDialogFragment

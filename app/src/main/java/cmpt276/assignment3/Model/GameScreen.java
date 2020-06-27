@@ -1,3 +1,7 @@
+/*
+Handles game logic and user interactions
+ */
+
 package cmpt276.assignment3.Model;
 
 import android.content.Context;
@@ -334,13 +338,6 @@ public class GameScreen extends AppCompatActivity
         }
 
     }
-
-    
-
-
-
-
-
 
 
 }

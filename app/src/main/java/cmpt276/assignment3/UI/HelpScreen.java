@@ -1,3 +1,7 @@
+/*
+Display help screen information (about author, how to play, sources)
+ */
+
 package cmpt276.assignment3.UI;
 
 import android.content.Context;

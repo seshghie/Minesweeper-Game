@@ -1,3 +1,7 @@
+/*
+Handles storing/accessing game settings set by user/default
+ */
+
 package cmpt276.assignment3.Model;
 
 import android.content.Context;

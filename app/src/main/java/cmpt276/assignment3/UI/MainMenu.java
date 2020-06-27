@@ -1,3 +1,7 @@
+/*
+Display main menu and handle relevant functions
+ */
+
 package cmpt276.assignment3.UI;
 
 import android.content.Context;

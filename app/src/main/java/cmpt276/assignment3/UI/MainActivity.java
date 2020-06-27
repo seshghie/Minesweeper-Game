@@ -1,10 +1,13 @@
+/*
+Display welcome screen and handle relevant functions
+ */
+
 package cmpt276.assignment3.UI;
 
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.View;
 import android.view.animation.Animation;
